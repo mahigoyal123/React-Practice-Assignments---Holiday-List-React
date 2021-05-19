@@ -39,20 +39,17 @@ class App extends Component {
 
   keyName="location";
 render() {
-    let cities = this.cityList.map((city, index) => {
-      if (city.country == "India") {
-        this.keyName = this.keyName + index;
-        return (
-          <li key={this.keyName}>
-            {city.name}
-          </li>
-        );
-      }
-    });
+    
     return (
       <div id="main">
         {/* Do not remove the main div */}
-        <ol>{cities}</ol>
+       <ol>
+          {this.cityList
+            .filter((city) => city.country.includes("India"))
+            .map((fcity) => (
+              <li key="{this.keyName}">{fcity.name}</li>
+            ))}
+        </ol>
       </div>
     );
   }
