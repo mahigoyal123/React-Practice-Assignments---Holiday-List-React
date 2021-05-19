@@ -37,10 +37,21 @@ class App extends Component {
     ]
   }
 
+  keyName="location";
   render() {
     return (
       <div id="main">
         {/* Do not remove the main div */}
+        <ol>
+          {this.cityList.map((item,index) => {
+            if (item.country == "India") {
+              this.keyName=this.keyName+index;
+              return (
+                <li key={this.keyName}>{item.name}</li>
+              )
+            }
+          })}
+        </ol>
       </div>
     )
   }
